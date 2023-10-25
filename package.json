@@ -1,6 +1,6 @@
 {
   "name": "@melexshop/melexshop-api",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Easily integrate Melexshop's powerful API into your JavaScript applications with the Melexshop API Bindings for JavaScript",
   "main": "index.js",
   "scripts": {
