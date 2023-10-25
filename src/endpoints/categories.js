@@ -6,3 +6,5 @@ export async function index({ endpoint, queryParams }) {
 export async function show({ endpoint, queryParams, id }) {
     return endpoint.get(resource + '/' + id + "?" + queryParams);
 }
+
+export default { index, show }

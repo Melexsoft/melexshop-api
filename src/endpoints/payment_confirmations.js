@@ -7,3 +7,5 @@ export async function create({ endpoint, json }) {
 export async function update({ endpoint, id, formData }) {
     endpoint.put(resource + id, formData);
 }
+
+export default { create, update }

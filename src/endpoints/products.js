@@ -11,3 +11,4 @@ export async function index({ endpoint, params }) {
 export async function show({ endpoint, id }) {
     return endpoint.get(resource + '/' + id);
 }
+export default { index, show }

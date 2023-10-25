@@ -10,7 +10,7 @@ import EndpointFilters from "./endpoints/filters"
 import EndpointMetaModels from "./endpoints/meta_models"
 const typedefs = require("./typedefs");
 
-const authorizedAxios = async (props) => {
+const authorizedAxios = (props) => {
     let defaultHeaders = {
         'Content-Type': 'application/json',
         'STORE-ID': props.store_token
@@ -35,7 +35,6 @@ function connector({ store_token, host }) {
 
     const params = { store_token, host };
     const endpoint = authorizedAxios(params)
-
     return {
         /**
          * MetaModel Namespace

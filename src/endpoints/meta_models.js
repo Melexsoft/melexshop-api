@@ -33,3 +33,5 @@ export async function showEntry({ endpoint, id, identifier, query }) {
     }
     return endpoint.get(api);
 }
+
+export default { showEntry, showEntries, showIndex, showIndices, showMetaModel }

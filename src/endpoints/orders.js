@@ -10,3 +10,6 @@ export async function get(id) {
     const instance = await authorizedAxios();
     return instance.get(`/store/orders/${id}`);
 }
+
+
+export default { create, get }
