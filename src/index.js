@@ -132,7 +132,7 @@ function connector({ store_token, host }) {
          * Returns all possible filters for filtering collections
          */
         filters: {
-            index: async () => EndpointFilters.index({ endpoint })
+            show: async () => EndpointFilters.show({ endpoint })
         },
         /**
          * Basket Namespace
