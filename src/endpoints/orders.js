@@ -1,15 +1,11 @@
-import { authorizedAxios } from './axios';
+const resource = '/store/orders';
 
-
-export async function create(basket, json) {
-    const instance = await authorizedAxios({ headers: { 'BASKET-ID': basket } });
-    return instance.post('/store/orders/', json);
+export async function create({ endpoint, json }) {
+    return endpoint.post(resource + '/', json);
 }
 
-export async function get(id) {
-    const instance = await authorizedAxios();
-    return instance.get(`/store/orders/${id}`);
+export async function show({ endpoint, id }) {
+    return endpoint.get(resource + '/' + id);
 }
 
-
-export default { create, get }
+export default { create, show };

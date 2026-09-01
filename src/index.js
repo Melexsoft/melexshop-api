@@ -2,6 +2,8 @@
 import axios from 'axios';
 import EndpointContext from './endpoints/context';
 import EndpointPage from './endpoints/page';
+import EndpointOrders from './endpoints/orders';
+import EndpointNewsletter from './endpoints/newsletter';
 import EndpointPaymentConfirmation from './endpoints/payment_confirmations';
 import EndpointBasket from './endpoints/basket';
 import EndpointCategories from "./endpoints/categories"
@@ -66,7 +68,7 @@ function connector({ store_token, host }) {
                  * @param {*} queryParams - filter the result by other index - value combination
                  * @returns 
                  */
-                show: async (id, indexName, queryParams) => EndpointMetaModels.showIndex({ endpoint, id, indexName, query })
+                show: async (id, indexName, queryParams) => EndpointMetaModels.showIndex({ endpoint, id, indexName, query: queryParams })
             },
             /**
              * Entry Namespace
@@ -176,11 +178,44 @@ function connector({ store_token, host }) {
          */
         page: {
             /**
-            * 
-            * @param {string} id 
+            *
+            * @param {string} id
             * @returns {Promise<typedefs.Page>}
             */
             show: async (id) => await EndpointPage.show({ endpoint, id })
+        },
+
+        /**
+         * Order Namespace
+         */
+        order: {
+            /**
+             * Create an order from the given basket.
+             * @param {string} basket - the Basket ID the order is created from
+             * @param {any} json - order payload (address, payment, etc.)
+             */
+            create: async (basket, json) => {
+                let newEndpoint = authorizedAxios({ ...params, headers: { 'BASKET-ID': basket } })
+                return EndpointOrders.create({ endpoint: newEndpoint, json })
+            },
+            /**
+             * Fetch an order by id.
+             * @param {string} id
+             */
+            show: async (id) => EndpointOrders.show({ endpoint, id })
+        },
+
+        /**
+         * Newsletter Namespace
+         */
+        newsletter: {
+            /**
+             * Subscribe an email to the store's newsletter.
+             * @param {string} email
+             * @param {string} [name]
+             */
+            create: async (email, name) =>
+                EndpointNewsletter.create({ endpoint, json: { newsletter: { email, name } } })
         },
 
         /**

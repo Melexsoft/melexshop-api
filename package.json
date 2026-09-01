@@ -1,6 +1,6 @@
 {
   "name": "@melexshop/melexshop-api",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "Easily integrate Melexshop's powerful API into your JavaScript applications with the Melexshop API Bindings for JavaScript",
   "main": "index.js",
   "scripts": {
@@ -22,6 +22,6 @@
   },
   "homepage": "https://github.com/Melexsoft/melexshop-api#readme",
   "dependencies": {
-    "axios": "^1.5.1"
+    "axios": "^1.20.0"
   }
 }
